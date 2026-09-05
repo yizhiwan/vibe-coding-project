@@ -1,0 +1,11 @@
+{
+  "name": "alphabet-adventure",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "browser-sync start --server --files \"*.html, *.css, *.js\" --port 3000 --no-open"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.3"
+  }
+}
