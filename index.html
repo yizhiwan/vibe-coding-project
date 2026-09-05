@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alphabet Adventure</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <span class="brand-bubble">A</span>
+          <div>
+            <p class="eyebrow">Alphabet Adventure</p>
+            <h1>Learn the ABCs!</h1>
+          </div>
+        </div>
+        <button id="homeBtn" class="nav-btn home-btn hidden" aria-label="Go home">
+          🏠 Home
+        </button>
+      </header>
+
+      <main class="screen" id="homeScreen">
+        <section class="title-panel">
+          <div class="title-badge">✨ Play & Learn</div>
+          <h2>Tap a letter and start your alphabet journey!</h2>
+          <p>Listen, trace, and find objects that match each letter.</p>
+        </section>
+
+        <section id="letterGrid" class="letter-grid" aria-label="Alphabet letter grid"></section>
+      </main>
+
+      <div id="lessonOverlay" class="modal hidden" aria-live="polite">
+        <div class="lesson-panel">
+          <button id="closeLessonBtn" class="close-btn" aria-label="Close lesson">✕</button>
+
+          <div class="lesson-hero">
+            <div class="hero-letter" id="selectedLetterBig">A</div>
+            <div class="hero-text">
+              <p class="eyebrow" id="letterPhonic">/a/</p>
+              <h3 id="letterWord">Apple</h3>
+            </div>
+          </div>
+
+          <div class="lesson-actions">
+            <button id="playLetterBtn" class="action-btn primary">🔊 Hear it!</button>
+            <button id="traceBtn" class="action-btn secondary">✏️ Trace it</button>
+            <button id="findObjectBtn" class="action-btn accent">🔎 Find objects</button>
+          </div>
+
+          <div class="letter-preview-row">
+            <div class="preview-card">
+              <span class="preview-label">Uppercase</span>
+              <div class="preview-letter uppercase" id="uppercasePreview">A</div>
+            </div>
+            <div class="preview-card">
+              <span class="preview-label">Lowercase</span>
+              <div class="preview-letter lowercase" id="lowercasePreview">a</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="traceOverlay" class="modal hidden" aria-live="polite">
+        <div class="trace-panel">
+          <div class="panel-header">
+            <h3>Trace the Letter</h3>
+            <button id="closeTraceBtn" class="close-btn" aria-label="Close trace game">✕</button>
+          </div>
+
+          <div class="trace-controls">
+            <button class="trace-switch active" data-trace-case="uppercase">Uppercase</button>
+            <button class="trace-switch" data-trace-case="lowercase">Lowercase</button>
+          </div>
+
+          <canvas id="traceCanvas" width="360" height="260" aria-label="Tracing canvas"></canvas>
+          <div class="trace-status-row">
+            <p id="traceStatus">Follow the stars and trace the letter.</p>
+            <button id="clearTraceBtn" class="mini-btn">Clear</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="objectOverlay" class="modal hidden" aria-live="polite">
+        <div class="object-panel">
+          <div class="panel-header">
+            <h3 id="objectPrompt">Can you find 3 items starting with the letter B?</h3>
+            <button id="closeObjectBtn" class="close-btn" aria-label="Close object game">✕</button>
+          </div>
+
+          <div id="objectScene" class="object-scene" aria-label="Object find game scene"></div>
+          <div class="object-footer">
+            <p id="objectProgress">0 / 3 found</p>
+            <button id="objectResetBtn" class="mini-btn">Try again</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="confettiLayer" class="confetti-layer" aria-hidden="true"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="live-reload.js"></script>
+  </body>
+</html>
