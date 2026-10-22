@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Ninja</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <span class="brand-bubble">🥷</span>
+          <div>
+            <p class="eyebrow">Number Ninja</p>
+            <h1>Count, add &amp; slice!</h1>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <span id="beltBadge" class="belt-badge" aria-live="polite">🥋 White belt · ⭐ 0</span>
+          <button id="homeBtn" class="nav-btn home-btn hidden" aria-label="Go home">
+            🏠 Home
+          </button>
+        </div>
+      </header>
+
+      <main class="screen" id="homeScreen">
+        <section class="title-panel">
+          <div class="title-badge">✨ Play &amp; Learn</div>
+          <h2>Pick a game and become a number ninja!</h2>
+          <p>Earn stars to level up your belt, from White all the way to Black.</p>
+        </section>
+
+        <section class="level-row" aria-label="Choose difficulty">
+          <span class="level-label">Numbers up to:</span>
+          <div class="level-switch">
+            <button class="level-btn" data-level="easy">5 · Easy</button>
+            <button class="level-btn" data-level="medium">10 · Medium</button>
+            <button class="level-btn" data-level="hard">20 · Hard</button>
+          </div>
+        </section>
+
+        <section id="modeGrid" class="mode-grid" aria-label="Games"></section>
+
+        <h2 class="section-title">Learn your numbers</h2>
+        <section id="numberGrid" class="number-grid" aria-label="Number grid"></section>
+      </main>
+
+      <div id="lessonOverlay" class="modal hidden" aria-live="polite">
+        <div class="lesson-panel">
+          <button class="close-btn" data-close aria-label="Close lesson">✕</button>
+
+          <div class="lesson-hero">
+            <div class="hero-number" id="lessonNumber">1</div>
+            <div class="hero-text">
+              <p class="eyebrow" id="lessonParity">1 is odd</p>
+              <h3 id="lessonWord">one</h3>
+            </div>
+          </div>
+
+          <div class="lesson-actions">
+            <button id="hearNumberBtn" class="action-btn primary">🔊 Hear it!</button>
+            <button id="countWithMeBtn" class="action-btn secondary">👆 Count with me</button>
+          </div>
+
+          <div id="lessonFrames" class="ten-frames" aria-label="Ten frame"></div>
+          <div id="lessonObjects" class="lesson-objects" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div id="quizOverlay" class="modal hidden" aria-live="polite">
+        <div class="quiz-panel">
+          <div class="panel-header">
+            <h3 id="quizTitle">🍎 Count It</h3>
+            <button class="close-btn" data-close aria-label="Close game">✕</button>
+          </div>
+
+          <div class="quiz-status">
+            <span id="quizProgress">Question 1 of 5</span>
+            <span id="quizTrack" class="quiz-track" aria-hidden="true"></span>
+          </div>
+
+          <div id="quizVisual" class="quiz-visual"></div>
+          <p id="quizPrompt" class="quiz-prompt">How many apples?</p>
+          <div id="quizChoices" class="quiz-choices"></div>
+          <p id="quizFeedback" class="quiz-feedback"></p>
+        </div>
+      </div>
+
+      <div id="sliceOverlay" class="modal hidden" aria-live="polite">
+        <div class="slice-panel">
+          <div class="panel-header">
+            <h3>🥷 Ninja Slice</h3>
+            <button class="close-btn" data-close aria-label="Close game">✕</button>
+          </div>
+
+          <div class="slice-hud">
+            <span id="sliceRule" class="slice-rule">Slice every 3!</span>
+            <span class="slice-stats">
+              <span id="sliceScore">⭐ 0</span>
+              <span id="sliceLives">❤️❤️❤️</span>
+              <span id="sliceTimer">⏱️ 30</span>
+            </span>
+          </div>
+
+          <div id="sliceArena" class="slice-arena">
+            <div id="sliceIntro" class="slice-intro">
+              <p id="sliceIntroRule" class="slice-intro-rule">Slice every 3!</p>
+              <p>Tap or swipe across the right numbers. Wrong numbers cost a heart!</p>
+              <button id="sliceStartBtn" class="action-btn primary">▶️ Start!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="resultOverlay" class="modal hidden" aria-live="polite">
+        <div class="result-panel">
+          <p id="resultStars" class="result-stars">⭐⭐⭐</p>
+          <h3 id="resultTitle">Super ninja!</h3>
+          <p id="resultSummary" class="result-summary">You got 5 of 5 right on the first try.</p>
+          <p id="resultBelt" class="result-belt hidden"></p>
+          <div class="result-actions">
+            <button id="playAgainBtn" class="action-btn primary">🔁 Play again</button>
+            <button id="resultHomeBtn" class="action-btn secondary">🏠 Home</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="confettiLayer" class="confetti-layer" aria-hidden="true"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="live-reload.js"></script>
+  </body>
+</html>
