@@ -13,17 +13,4 @@ Project list:
 cd alphabet-adventure && npm install && npm run dev
 ```
 
-**telegram-career-coach** - export your bot token and a webhook secret, then deploy (requires the `gcloud` CLI):
-
-```bash
-export TELEGRAM_BOT_TOKEN=<token from @BotFather> WEBHOOK_SECRET=<letters, digits, _ or ->
-bash telegram-career-coach/deploy.sh
-```
-
-After deploying, register the function URL with Telegram:
-
-```bash
-curl "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/setWebhook" -d "url=<FUNCTION_URL>" -d "secret_token=$WEBHOOK_SECRET"
-```
-
-Never commit the token or secret — they are read from environment variables only.
+**telegram-career-coach** - see [telegram-career-coach/README.md](telegram-career-coach/README.md) for commands, deployment to Google Cloud and local testing.
