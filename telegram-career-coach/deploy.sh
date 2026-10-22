@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+gcloud functions deploy telegram-career-coach --gen2 --runtime=python312 --region="${REGION:-us-central1}" --source="$(dirname "$0")" --entry-point=telegram_webhook --trigger-http --allow-unauthenticated --max-instances=1 --memory=256Mi --timeout=60s --set-env-vars="TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:?export TELEGRAM_BOT_TOKEN first},WEBHOOK_SECRET=${WEBHOOK_SECRET:?export WEBHOOK_SECRET first}"
